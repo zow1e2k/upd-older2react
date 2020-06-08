@@ -6,35 +6,72 @@
     font-weight: bold;
     font-size: 15px;
 }
-input[type="text"] {
-    width: 19.75em;
-    height: 2em;
-    border: none;
-    font: inherit;
-    color: #005500;
-    background-color: #D5D5D5;
-    cursor: pointer;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid #000;
-}
 .main {
     height: inherit;
-    text-align: left;
-    font-size: 110%;
-    font-style: oblique;
-    font-weight: bold;
-    font-stretch: expanded;
-    position: center;
-    margin-top: 3em;
-    margin-bottom: 1.5em;
-    margin-left: 3em;
+    background: transparent url('../img/bg_paper.png') repeat-y top left;
+    padding: 15em 15em 1em 15em;
 }
 
 .mainText {
-    display: flex;
-    flex-direction: inherit;
-    padding: 20em 35em 1em 35em;
-    background: transparent url('../img/bg_paper.png') no-repeat top center;
+    display: compact;
+    position: center;
+    margin: 1em 1em 1em 1em;
+    padding: 1em 50em 1em 1em;
+    text-align: left;
+    font-size: 100%;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.registerForms {
+    margin-top: 10%;
+    position: inherit;
+    background: transparent;
+}
+
+.registerText {
+    font-weight: bolder;
+    color: #ffff55;
+    width: 13em;
+    text-align: center;
+}
+
+.registerBtn {
+    width: 12em;
+    height: 4em;
+    position: absolute;
+    text-align: center;
+    display: block;
+    color: #fc0;
+}
+
+input[type="text"]
+{
+    background-color: #f3f3f3;
+    border: 2px solid #ff5500;
+    font-family: Comic Sans MS;
+    height: 30px;
+    color: #555555;
+    vertical-align: top;
+    cursor: url(../img/gam1385.cur),default;
+}
+input[type="password"]
+{
+    background-color: #f3f3f3;
+    border: 2px solid #ff5500;
+    height: 30px;
+    color: #555555;
+    font-family: Comic Sans MS;
+    vertical-align: top;
+    cursor: url(../img/gam1385.cur),default;
+}
+input[type="email"]
+{
+    background-color: #f3f3f3;
+    border: 2px solid #ff5500;
+    height: 30px;
+    font-family: Comic Sans MS;
+    color: #555555;
+    vertical-align: top;
+    cursor: url(../img/gam1385.cur),default;
 }

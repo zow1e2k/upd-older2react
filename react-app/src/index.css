@@ -17,6 +17,7 @@ header {
     align-items: center;
 }
 
+
 button {
     width: 12em;
     height: 4em;
@@ -24,10 +25,9 @@ button {
     font-weight: bolder;
     margin-left: 1em;
     margin-top: 0.5em;
-    display: inline-block;
     text-align: center;
     color: #fc0;
-    background-image: url(img/button.png);
+    background-image: url('img/button.png');
     background-repeat: no-repeat;
 }
 

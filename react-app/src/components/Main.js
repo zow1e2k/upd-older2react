@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 import "./Main.css";
 
 class Main extends React.Component {
@@ -13,10 +12,18 @@ class Main extends React.Component {
         this.setState({[name]: e.target.innerHTML});
     }
 
-    render() {
-        this.state.newPage = this.props.page;
+    register(e) {
 
-        if (this.state.newPage === 'Main') {
+    }
+
+    login (e) {
+
+    }
+
+
+    render() {
+        const p = this.props.page;
+        if (p === 'Main') {
             return (
                 <div className={"main"}>
                     <div className={"mainText"}>
@@ -57,37 +64,66 @@ class Main extends React.Component {
             );
         }
 
-        if (this.state.newPage === 'Sign up') {
+        if (p === 'Sign up') {
             return (
                 <div className={"signUp"}>
+                    <form className={"registerForms"}>
+                        <div className={"registerText"}>Login</div>
+                        <input type="text" name="login"/>
+                        <div className={"registerText"}>Password</div>
+                        <input type="password" name="password"/>
+                        <div className={"registerText"}>Mail</div>
+                        <input type="email" name="mail"/>
+                        <button
+                            className={"registerBtn"}
+                            onClick={(e) => this.register(e)}
+                            onMouseOver={(e) => e.currentTarget.style.borderBottom = "2px solid #ffcc00"}
+                            onMouseOut={(e) => e.currentTarget.style.borderBottom = "none"}
+                        > Sign up </button>
+                    </form>
                 </div>
             );
         }
 
-        if (this.state.newPage === 'Sign in') {
+        if (p === 'Sign in') {
             return (
                 <div className={"signIn"}>
+                    <form className={"registerForms"}>
+                        <div className={"registerText"}>Login</div>
+                        <input type="text" name="login"/>
+                        <div className={"registerText"}>Password</div>
+                        <input type="password" name="password"/>
+                        <button
+                            className={"registerBtn"}
+                            onClick={(e) => this.login(e)}
+                            onMouseOver={(e) => e.currentTarget.style.borderBottom = "2px solid #ffcc00"}
+                            onMouseOut={(e) => e.currentTarget.style.borderBottom = "none"}
+                        > Sign in </button>
+                    </form>
                 </div>
             );
         }
 
-        if (this.state.newPage === 'Forum') {
+        if (p === 'Forum') {
             return (
                 <div className={"forum"}>
+
                 </div>
             );
         }
 
-        if (this.state.newPage === 'Servers') {
+        if (p === 'Servers') {
             return (
                 <div className={"servers"}>
+
                 </div>
             );
         }
 
-        if (this.state.newPage === 'Donate') {
+        if (p === 'Donate') {
             return (
                 <div className={"donate"}>
+
                 </div>
             );
         }

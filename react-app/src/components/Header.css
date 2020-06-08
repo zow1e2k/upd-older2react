@@ -9,7 +9,8 @@ button {
     font: inherit;
     color: inherit;
     background-color: transparent;
-    display: flex;
+
+    display: inline-block;
     flex-direction: row;
     cursor: url(../img/gam1389.cur),default;
     white-space: nowrap;
