@@ -1,0 +1,16 @@
+.mainClock {
+    color: #FF4500;
+}
+
+button {
+    width: inherit;
+    height: inherit;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    cursor: url(../img/gam1389.cur),default;
+    white-space: nowrap;
+}

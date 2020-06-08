@@ -1,0 +1,40 @@
+.donate {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+input[type="text"] {
+    width: 19.75em;
+    height: 2em;
+    border: none;
+    font: inherit;
+    color: #005500;
+    background-color: #D5D5D5;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+}
+.main {
+    height: inherit;
+    text-align: left;
+    font-size: 110%;
+    font-style: oblique;
+    font-weight: bold;
+    font-stretch: expanded;
+    position: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    margin-left: 3em;
+}
+
+.mainText {
+    display: flex;
+    flex-direction: inherit;
+    padding: 20em 35em 1em 35em;
+    background: transparent url('../img/bg_paper.png') no-repeat top center;
+}
