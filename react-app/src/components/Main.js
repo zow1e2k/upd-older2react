@@ -2,28 +2,40 @@ import React from "react";
 import "./Main.css";
 
 class Main extends React.Component {
+
     constructor(props) {
         super(props);
-        this.state = {newPage: 'Main'};
+        this.state = {login: '', password: '', mail: '', isLogged: 'false'};
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e, name) {
-        this.setState({[name]: e.target.innerHTML});
+    handleChange(value, state) {
+        this.setState({[state] : value});
     }
 
-    register(e) {
+    login (login, password) {
 
+        let item = localStorage.getItem(login).split('|')[0];
+
+        if (password === item) {
+            this.handleChange('true', 'isLogged');
+        }
     }
 
-    login (e) {
+    register(login, password, mail) {
 
-    }
+        if (!login.match(/[|]/gi) && !mail.match(/[|]/gi)) {
+            localStorage.setItem(login, password + '|' + mail);
+            this.props.page = 'Sign up';
+        }
+    };
 
 
     render() {
-        const p = this.props.page;
-        if (p === 'Main') {
+        const p = this.props.page,
+            isLogged = this.state.isLogged;
+
+        if (p === 'Main' && isLogged === 'false') {
             return (
                 <div className={"main"}>
                     <div className={"mainText"}>
@@ -48,7 +60,7 @@ class Main extends React.Component {
                         <li>It is not recommended to create characters, clans, alliances with offensive and / or provocative names.</li>
                         <li>It is forbidden to use terminology in the names / names of game characters / associations, implying the endowment of the character / association with administrative functions.</li>
                         <li>It is allowed to use fictitious information or intentionally hide certain items when registering on the forum and when creating a game account.</li>
-                        <li>It is forbidden to resort to hacking and / or interception of data coming to the server or from the server Lineage2.
+                        <li>It is forbidden to resort to hacking and / or interception of data coming to the server or from the server Lineage2.</li>
                         <li>It is forbidden to use errors of the Lineage2 server software during the game. It is also prohibited to disseminate information about the presence of errors
                             suitable for deliberate use during the game in order to obtain any benefit. Details of errors found should be immediately reported to the administration. If the error found can be intentionally used in
                             in order to obtain any benefit and / or advantage, the administration must be informed immediately.</li>
@@ -57,26 +69,25 @@ class Main extends React.Component {
                         <li>Forbidden cloning of characters.</li>
                         <li>It is forbidden to use an exploit (a situation that allows an NPC to attack without being attacked by itself) on mobs above level 49.</li>
                         <li>Since the game on the server is free and the server is privately owned, the administration has the right to block your access to the game / forums without giving any reasons.</li>
-                        </li>
                     </ol>
                     </div>
                 </div>
             );
         }
 
-        if (p === 'Sign up') {
+        if (p === 'Sign up' && isLogged === 'false') {
             return (
                 <div className={"signUp"}>
                     <form className={"registerForms"}>
                         <div className={"registerText"}>Login</div>
-                        <input type="text" name="login"/>
+                        <input type="text" name="login" onChange={(e) => this.handleChange(e.currentTarget.value, 'login')}/>
                         <div className={"registerText"}>Password</div>
-                        <input type="password" name="password"/>
+                        <input type="password" name="password" onChange={(e) => this.handleChange(e.currentTarget.value, 'password')}/>
                         <div className={"registerText"}>Mail</div>
-                        <input type="email" name="mail"/>
+                        <input type="email" name="mail" onChange={(e) => this.handleChange(e.currentTarget.value, 'mail')}/>
                         <button
                             className={"registerBtn"}
-                            onClick={(e) => this.register(e)}
+                            onClick={() => this.register(this.state.login, this.state.password, this.state.mail)}
                             onMouseOver={(e) => e.currentTarget.style.borderBottom = "2px solid #ffcc00"}
                             onMouseOut={(e) => e.currentTarget.style.borderBottom = "none"}
                         > Sign up </button>
@@ -85,17 +96,17 @@ class Main extends React.Component {
             );
         }
 
-        if (p === 'Sign in') {
+        if (p === 'Sign in' && isLogged === 'false') {
             return (
                 <div className={"signIn"}>
                     <form className={"registerForms"}>
                         <div className={"registerText"}>Login</div>
-                        <input type="text" name="login"/>
+                        <input type="text" name="login" onChange={(e) => this.handleChange(e.currentTarget.value, 'login')}/>
                         <div className={"registerText"}>Password</div>
-                        <input type="password" name="password"/>
+                        <input type="password" name="password" onChange={(e) => this.handleChange(e.currentTarget.value, 'password')}/>
                         <button
                             className={"registerBtn"}
-                            onClick={(e) => this.login(e)}
+                            onClick={() => this.login(this.state.login, this.state.password)}
                             onMouseOver={(e) => e.currentTarget.style.borderBottom = "2px solid #ffcc00"}
                             onMouseOut={(e) => e.currentTarget.style.borderBottom = "none"}
                         > Sign in </button>
@@ -126,6 +137,14 @@ class Main extends React.Component {
 
                 </div>
             );
+        }
+
+        if (isLogged === 'true') {
+            return (
+                <div className={"profile"}>
+                    <p>Welcome to your profile, {this.state.login}</p>
+                </div>
+            )
         }
 
         return ('');

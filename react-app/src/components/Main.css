@@ -75,3 +75,8 @@ input[type="email"]
     vertical-align: top;
     cursor: url(../img/gam1385.cur),default;
 }
+
+.profile {
+    font-size: 30px;
+    color: #FF4500;
+}
